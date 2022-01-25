@@ -4,7 +4,7 @@ A depiction of the local rail network around Dublin Connolly station in the Repu
 
 This timetable does not fully complement the layout, as such I encourage others to create their own to, this would be much appreciated!
 
-![Image of Current State of Map](Images/IRE_Dublin_Area.bmp)
+![Image of Current State of Map](Images/IE_Dublin_Area.bmp)
 
 ## Coverage and Description of Main Features
 
