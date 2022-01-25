@@ -1,0 +1,9 @@
+rly_file = "IE_Dublin_Area.rly"
+ttb_files = [ "DART_Weekday.ttb",]
+ssn_files = [ "IE_Dublin_Area_DART_Weekday.ssn",]
+country_code = "IE"
+name = ""
+description = ""
+display_name = "Dublin Area"
+author = "Kristian Zarębski"
+contributors = [ "Kristian Zarebski",]
