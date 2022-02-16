@@ -1,8 +1,5 @@
 name: ROSCIDev
-on:
-  push:
-    tags:
-      - "v*"
+on: [released]
 permissions:
   contents: write
 jobs:
