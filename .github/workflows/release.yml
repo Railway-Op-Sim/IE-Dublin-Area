@@ -1,7 +1,8 @@
 name: Simulation Release
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - "v*"
 permissions:
   contents: write
 jobs:
@@ -51,7 +52,12 @@ jobs:
           zip -r $DIR_NAME.zip $DIR_NAME
           ls *.zip
 
-      - uses: actions/upload-artifact@v1
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
         with:
-            name: simulation_release
-            path: ./*.zip
+          token: "${{ secrets.GITHUB_TOKEN }}"
+          prerelease: false
+          name: ${{ github.repository }} Release ${{ steps.previoustag.outputs.tag }}
+          tag_name: ${{ steps.previoustag.outputs.tag }}
+          files: |
+            *.zip
