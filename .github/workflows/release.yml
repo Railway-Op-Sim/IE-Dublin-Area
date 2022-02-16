@@ -24,10 +24,10 @@ jobs:
         with:
           run: |
             VERSION="${{ steps.previoustag.outputs.tag }}"
-            echo ${VERSION//./_}
+            echo ${VERSION//./_} | xargs
       - name: Create Package
         run: |
-          DIR_NAME=$(echo "${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}" | xargs)
+          DIR_NAME=${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
           mkdir -p $DIR_NAME
           mkdir -p $DIR_NAME/Program\ timetables
           cp Program_Timetables/*.ttb $DIR_NAME/Program\ timetables/
