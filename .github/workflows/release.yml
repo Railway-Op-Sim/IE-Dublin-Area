@@ -36,9 +36,9 @@ jobs:
           mkdir -p $DIR_NAME/Metadata
           cp Metadata/*.toml $DIR_NAME/Metadata/
           if [ -n "$(ls Sessions/*.ssn)" ]; then mkdir -p $DIR_NAME/Sessions/; cp Sessions/*.ssn $DIR_NAME/Sessions/; fi
-          if [ -d Graphics ] && [ -n "$(ls Graphics/* || true)" ]; then mkdir -p $DIR_NAME/Sessions/; cp Sessions/*.ssn $DIR_NAME/Sessions/; rm -rf $DIR_NAME/Graphics/.gitkeep; fi
+          if [ -d Graphics ] && [ -n "$(ls Graphics/* || true)" ]; then mkdir -p $DIR_NAME/Graphics/; cp Graphics/*.{png,jpg,bmp} $DIR_NAME/Graphics/; fi
           mkdir -p $DIR_NAME/Images
-          cp Images/*.png $DIR_NAME/Images/
+          cp Images/*.{png,bmp,jpg} $DIR_NAME/Images/
           mkdir -p Documentation/
           mv ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/README.pdf
       - uses: baileyjm02/markdown-to-pdf@v1
