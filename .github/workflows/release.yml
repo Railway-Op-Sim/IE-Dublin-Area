@@ -1,4 +1,4 @@
-name: ROSCIDev
+name: Simulation Release
 on:
   release:
     types: [published]
@@ -17,12 +17,12 @@ jobs:
         uses: mathiasvr/command-output@v1
         id: outdir_name
         with:
-          run: $(echo $GITHUB_REPOSITORY | cut -d '/' -f 2 | cut -d '-' -f 2 | xargs)
+          run: echo $GITHUB_REPOSITORY | cut -d '/' -f 2 | cut --complement -f1 -d '-' | xargs
       - name: Set Version Suffix
         uses: mathiasvr/command-output@v1
         id: outver
         with:
-          run: echo ${${{ steps.previoustag.outputs.tag }}//./_}
+          run: echo ${${{ steps.previoustag.outputs.tag }}//./_} | xargs
       - name: Create Package
         run: |
           DIR_NAME=${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
