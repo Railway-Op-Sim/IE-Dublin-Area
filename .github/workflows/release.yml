@@ -27,7 +27,7 @@ jobs:
             echo ${VERSION//./_} | xargs
       - name: Create Package
         run: |
-          DIR_NAME=${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
+          DIR_NAME=$(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
           mkdir -p $DIR_NAME
           mkdir -p $DIR_NAME/Program\ timetables
           cp Program_Timetables/*.ttb $DIR_NAME/Program\ timetables/
