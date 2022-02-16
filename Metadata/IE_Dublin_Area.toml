@@ -12,3 +12,5 @@ release_date = "2019-06-29"
 version = "1.0.0"
 year = 2019
 factual = true
+img_files = [ "IE_Dublin_Area.bmp",]
+contributors = []
