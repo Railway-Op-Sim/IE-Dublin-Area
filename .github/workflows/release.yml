@@ -32,7 +32,9 @@ jobs:
           sources: 'Documentation/*.md'
       - name: Create Package
         run: |
+          sudo apt install zip -y
           DIR_NAME=$(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
+          DIR_NAME=$(echo $DIRNAME | xargs)
           mkdir -p $DIR_NAME
           mkdir -p $DIR_NAME/Program\ timetables
           cp Program_Timetables/*.ttb $DIR_NAME/Program\ timetables/
@@ -46,12 +48,9 @@ jobs:
           rm -rf $DIR_NAME/Images/.gitkeep
           mkdir -p $DIR_NAME/Documentation/
           cp ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/Documentation/
-          
-      - name: Create Zip
-        uses: montudor/action-zip@v1
-        with:
-            args: zip -qq -r $(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs).zip $(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
+          zip -r $DIR_NAME.zip $DIR_NAME
+
       - uses: actions/upload-artifact@v1
         with:
             name: simulation_release
-            path: ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}.zip
+            path: ./*.zip
