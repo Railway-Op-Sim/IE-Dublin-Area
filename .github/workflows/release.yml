@@ -48,7 +48,7 @@ jobs:
           cp -r Images $DIR_NAME/Images/
           rm -rf $DIR_NAME/Images/.gitkeep
           mkdir -p $DIR_NAME/Documentation/
-          cp ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/Documentation/
+          cp ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/Documentation/README.pdf
           zip -r $DIR_NAME.zip $DIR_NAME
           ls *.zip
 
