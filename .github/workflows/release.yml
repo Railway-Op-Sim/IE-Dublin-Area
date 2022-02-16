@@ -22,7 +22,8 @@ jobs:
         uses: mathiasvr/command-output@v1
         id: outver
         with:
-          run: echo ${${{ steps.previoustag.outputs.tag }}//./_} | xargs
+          run: |
+            VERSION="${{ steps.previoustag.outputs.tag }}" echo ${VERSION//./_} | xargs
       - name: Create Package
         run: |
           DIR_NAME=${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
