@@ -23,7 +23,7 @@ jobs:
         id: outver
         with:
           run: |
-            VERSION="${{ steps.previoustag.outputs.tag }}" echo ${VERSION//./_} | xargs
+            VERSION=$("${{ steps.previoustag.outputs.tag }}" echo ${VERSION//./_} | xargs)
       - name: Create Package
         run: |
           DIR_NAME=${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
