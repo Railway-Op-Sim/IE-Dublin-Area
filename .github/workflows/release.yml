@@ -34,7 +34,7 @@ jobs:
         run: |
           sudo apt install zip -y
           DIR_NAME=$(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
-          DIR_NAME=$(echo $DIRNAME | xargs)
+          DIR_NAME=$(echo $DIR_NAME | xargs)
           mkdir -p $DIR_NAME
           mkdir -p $DIR_NAME/Program\ timetables
           cp Program_Timetables/*.ttb $DIR_NAME/Program\ timetables/
