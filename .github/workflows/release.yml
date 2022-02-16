@@ -49,6 +49,7 @@ jobs:
           mkdir -p $DIR_NAME/Documentation/
           cp ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/Documentation/
           zip -r $DIR_NAME.zip $DIR_NAME
+          ls *.zip
 
       - uses: actions/upload-artifact@v1
         with:
