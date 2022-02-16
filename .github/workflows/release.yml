@@ -25,6 +25,11 @@ jobs:
           run: |
             VERSION="${{ steps.previoustag.outputs.tag }}"
             echo ${VERSION//./_} | xargs
+      - name: Publish PDF Document
+        uses: shrink/actions-document-publish@v1
+        id: publish-document
+        with:
+          sources: 'Documentation/*.md'
       - name: Create Package
         run: |
           DIR_NAME=$(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
@@ -40,15 +45,8 @@ jobs:
           cp -r Images $DIR_NAME/Images/
           rm -rf $DIR_NAME/Images/.gitkeep
           mkdir -p $DIR_NAME/Documentation/
-      - name: Publish PDF Document
-        uses: shrink/actions-document-publish@v1
-        id: publish-document
-        with:
-          sources: 'Documentation/*.md'
-      - name: Move PDF
-        run: |
-          DIR_NAME=$(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
-          mv ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/Documentation
+          cp ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/Documentation/
+          
       - name: Create Zip
         uses: montudor/action-zip@v1
         with:
