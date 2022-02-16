@@ -50,7 +50,7 @@ jobs:
       - name: Create Zip
         uses: montudor/action-zip@v1
         with:
-            args: zip -qq -r ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}.zip ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
+            args: zip -qq -r $(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs).zip $(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
       - uses: actions/upload-artifact@v1
         with:
             name: simulation_release
