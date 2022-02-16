@@ -44,7 +44,7 @@ jobs:
         uses: shrink/actions-document-publish@v1
         id: publish-document
         with:
-          sources: 'Documents/*.md'
+          sources: 'Documentation/*.md'
       - name: Move PDF
         run: |
           DIR_NAME=$(echo "${{ steps.outdir_name.outputs.stdout }}" | xargs)_$(echo "${{ steps.outver.outputs.stdout }}" | xargs)
