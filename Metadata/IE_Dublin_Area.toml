@@ -1,8 +1,8 @@
 rly_file = "IE_Dublin_Area.rly"
 ttb_files = [ "DART_Weekday.ttb",]
 ssn_files = [ "IE_Dublin_Area_DART_Weekday.ssn",]
-image_files = ["IE_Dublin_Area.bmp",]
-doc_files = ["README.md",]
+image_files = [ "IE_Dublin_Area.bmp",]
+doc_files = [ "README.md",]
 country_code = "IE"
 name = "Dublin Area"
 description = "Representation of the local network around the city of Dublin, Ireland"
