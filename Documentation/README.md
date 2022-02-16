@@ -1,26 +1,39 @@
-# Project Title
+# Iarnród Éireann Dublin Area
 
-*About the project goes here*
+A depiction of the local rail network around Dublin Connolly station in the Republic of Ireland. The layout covers much of the Dublin Area Rapid Transit (DART) the area between Grand Canal Dock south of Connolly and Malahide/Howth. Included is a basic early morning timetable commencing at 6am with a couple of additional freight services to and from the Alexander Road freight terminal.
 
-You could include:
-- Some history to the route.
-- What stations are included?
-- The type of services the route has. (Freight/Passenger)
+This timetable does not fully complement the layout, as such I encourage others to create their own to, this would be much appreciated!
 
-## Simulation
+![Image of Current State of Map](Images/IE_Dublin_Area.bmp)
 
-*This section describes the timetable*
+## Coverage and Description of Main Features
 
-You could include:
-- Where services go to and from.
-- How frequent the services are.
-- Any tips for operating the route.
+Stations included within this simulation are the DART stations:
 
-## Development
+- Grand Canal Dock
+- Dublin Pearse
+- Tara Street
+- Dublin Connolly
+- Clontarf Road
+- Killester
+- Hamonstown
+- Raheny
+- Kilbarrack
+- Howth Junction & Donaghmede
+- Clongriffin
+- Portmarnock
+- Malahide
+- Bayside
+- Sutton
+- Howth
 
-*This section is optional though highly recommended*
+and additional commuter stations towards Maynooth:
 
-If your route is open to contribution on the ROS GitHub, then it may be a good idea to:
-- Include a link to your project on GitHub.
-- Include any information about what could be built upon in this route.
-- Tell the reader where they can go to get help if they want to contribute.
+- Docklands
+- Drumcondra
+
+In addition sidings are included between Connolly and Clontarf Road, as well as the cargo terminal at Alexandra Road.
+
+## Session
+
+A session has been included which sets the main routes to be automatically signalled.
