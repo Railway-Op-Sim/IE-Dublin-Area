@@ -36,7 +36,7 @@ jobs:
           mkdir -p $DIR_NAME/Metadata
           cp Metadata/*.toml $DIR_NAME/Metadata/
           if [ -n "$(ls Sessions/*.ssn)" ]; then mkdir -p $DIR_NAME/Sessions/; cp Sessions/*.ssn $DIR_NAME/Sessions/; fi
-          if [ -n "$(ls Graphics/*)" ]; then mkdir -p $DIR_NAME/Sessions/; cp Sessions/*.ssn $DIR_NAME/Sessions/; rm -rf $DIR_NAME/Graphics/.gitkeep; fi
+          if [ -d Graphics ] && [ -n "$(ls Graphics/*)" ]; then mkdir -p $DIR_NAME/Sessions/; cp Sessions/*.ssn $DIR_NAME/Sessions/; rm -rf $DIR_NAME/Graphics/.gitkeep; fi
           mkdir -p $DIR_NAME/Images
           cp Images/*.png $DIR_NAME/Images/
           mkdir -p Documentation/
