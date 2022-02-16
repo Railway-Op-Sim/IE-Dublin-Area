@@ -1,5 +1,5 @@
 name: ROSCIDev
-on: [released]
+on: [published]
 permissions:
   contents: write
 jobs:
