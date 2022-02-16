@@ -11,11 +11,6 @@ jobs:
       - name: Get Previous tag
         id: previoustag
         uses: "WyriHaximus/github-action-get-previous-tag@v1"
-      - name: Create Documentation
-        uses: shrink/actions-document-publish@v1
-        id: publish-document
-        with:
-          sources: Documentation/*.md
       - name: Set Output Directory
         uses: mathiasvr/command-output@v1
         id: outdir_name
@@ -42,11 +37,16 @@ jobs:
           cp Images/*.png $DIR_NAME/Images/
           mkdir -p Documentation/
           mv ${{ steps.publish-document.outputs.pdf }} $DIR_NAME/README.pdf
+      - uses: baileyjm02/markdown-to-pdf@v1
+        with:
+          input_dir: Documentation/README.md
+          output_dir: ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
+          build_html: false
       - name: Create Zip
-        - uses: montudor/action-zip@v1
-          with:
+        uses: montudor/action-zip@v1
+        with:
             args: zip -qq -r ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}.zip ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}
       - uses: actions/upload-artifact@v1
         with:
             name: simulation_release
-            path:${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}.zip
+            path: ${{ steps.outdir_name.outputs.stdout }}_${{ steps.outver.outputs.stdout }}.zip
