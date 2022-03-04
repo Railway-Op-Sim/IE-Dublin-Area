@@ -1,6 +1,12 @@
 name: Remove old artifacts
 
-on:
+on: 
+  workflow_dispatch:
+    inputs:
+      tags:
+          description: 'Test scenario tags'
+          required: false 
+          type: boolean
   schedule:
     # Every day at 1am
     - cron: '0 20 * * *'
